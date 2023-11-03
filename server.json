@@ -1,0 +1,32 @@
+{
+  "balances": [
+    {
+      "name": "Teste",
+      "amount": 1000,
+      "type": "income",
+      "createdAt": "2023-09-19T17:19:44.380Z",
+      "id": "xYRTA4U"
+    },
+    {
+      "name": "Conta de energia",
+      "amount": 250,
+      "type": "outcome",
+      "createdAt": "2023-09-19T17:33:22.630Z",
+      "id": "FTXN9Pq"
+    },
+    {
+      "name": "Mobile app",
+      "amount": 10000,
+      "type": "income",
+      "createdAt": "2023-09-19T20:41:01.279Z",
+      "id": "ziOCD6i"
+    },
+    {
+      "name": "Teste",
+      "amount": 2000,
+      "type": "income",
+      "createdAt": "2023-10-15T15:46:53.123Z",
+      "id": "b4Or2-X"
+    }
+  ]
+}
