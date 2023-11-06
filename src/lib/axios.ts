@@ -43,7 +43,6 @@ api.registerInterceptTokenMangager = (signOut) => {
           const originalRequestConfig = requestError.config
 
           if (!isRefreshing) {
-            console.log(token)
             return new Promise((resolve, reject) => {
               failedQueue.push({
                 onSuccess: (token: string) => {

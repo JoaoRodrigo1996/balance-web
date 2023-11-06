@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
-import { CircleOff, Loader, Loader2, Plus, Trash } from 'lucide-react'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { CircleOff, Loader2, Trash } from 'lucide-react'
+
 import {
   Table,
   TableBody,
@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/table'
 import { Button } from '../ui/button'
 import { TransactionContext } from '@/contexts/transaction-context'
-import { NewTransactionModal } from '../new-transaction-modal'
 import { dateFormatter } from '@/utils/date-formatter'
 import { priceFormatter } from '@/utils/price-formatter'
 import { Pagination } from '../pagination'
@@ -27,22 +26,9 @@ export function TransactionTable() {
 
   return (
     <div className="flex flex-col gap-4">
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button className="ml-auto gap-2">
-            <Plus className="h-4 w-4" />
-            Novo
-          </Button>
-        </DialogTrigger>
-        <DialogContent>
-          <NewTransactionModal />
-        </DialogContent>
-      </Dialog>
-
       <Table className="border">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]"></TableHead>
             <TableHead>Title</TableHead>
             <TableHead>Amount</TableHead>
             <TableHead>Type</TableHead>
@@ -53,7 +39,6 @@ export function TransactionTable() {
           return (
             <TableBody key={transaction.id}>
               <TableRow>
-                <TableCell className="font-medium">-</TableCell>
                 <TableCell>{transaction.title}</TableCell>
                 <TableCell>
                   {priceFormatter.format(transaction.amount)}

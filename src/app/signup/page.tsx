@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useToast } from '@/components/ui/use-toast'
 import { api } from '@/lib/axios'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -25,6 +26,8 @@ export default function SignUp() {
 
   const router = useRouter()
 
+  const { toast } = useToast()
+
   async function handleCreateAccount({
     name,
     email,
@@ -32,10 +35,20 @@ export default function SignUp() {
   }: SignUpBodySchemaFormData) {
     try {
       await api.post('/accounts', { name, email, password })
-
+      toast({
+        variant: 'default',
+        title: 'Conta criada!',
+        description: 'Sua conta foi criada com sucesso.',
+        duration: 2000,
+      })
       router.push('/')
     } catch (error) {
-      console.log(error)
+      toast({
+        variant: 'destructive',
+        title: 'Não foi possível criar uma conta.',
+        description: 'Não foi possível criar uma conta. Tente novamante.',
+      })
+      router.push('/signup')
     }
   }
 

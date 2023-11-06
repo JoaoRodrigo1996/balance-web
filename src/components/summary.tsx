@@ -9,14 +9,14 @@ export function Summary() {
   const summary = useSummary()
 
   return (
-    <section className="grid grid-cols-3 gap-4">
+    <section className="flex flex-col justify-between gap-2 md:grid md:grid-cols-3 md:gap-4">
       <Card>
         <CardHeader className="item-center flex flex-row justify-between">
-          <CardTitle>INCOME</CardTitle>
-          <ArrowUpCircle className="h-5 w-5 text-emerald-400" />
+          <CardTitle className="text-sm lg:text-base">INCOME</CardTitle>
+          <ArrowUpCircle className="h-4 w-4 text-emerald-400 lg:h-5 lg:w-5" />
         </CardHeader>
         <CardContent className="flex flex-col">
-          <span className="font-mono text-xl font-bold">
+          <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.INCOME)}
           </span>
           <span className="text-sm font-medium text-muted-foreground">
@@ -26,11 +26,11 @@ export function Summary() {
       </Card>
       <Card>
         <CardHeader className="item-center flex flex-row justify-between">
-          <CardTitle>OUTCOME</CardTitle>
-          <ArrowDownCircle className="h-5 w-5 text-red-400" />
+          <CardTitle className="text-sm lg:text-base">OUTCOME</CardTitle>
+          <ArrowDownCircle className="h-4 w-4 text-red-400 lg:h-5 lg:w-5" />
         </CardHeader>
         <CardContent className="flex flex-col">
-          <span className="font-mono text-xl font-bold">
+          <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.OUTCOME)}
           </span>
           <span className="text-sm font-medium  text-muted-foreground">
@@ -40,11 +40,11 @@ export function Summary() {
       </Card>
       <Card>
         <CardHeader className="item-center flex flex-row justify-between">
-          <CardTitle>Total Revenue</CardTitle>
-          <DollarSign className="h-5 w-5 text-zinc-100" />
+          <CardTitle className="text-sm lg:text-base">Total Revenue</CardTitle>
+          <DollarSign className="h-4 w-4  text-zinc-100 lg:h-5 lg:w-5" />
         </CardHeader>
         <CardContent className="flex flex-col">
-          <span className="font-mono text-xl font-bold">
+          <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.total)}
           </span>
           <span className="text-sm font-medium text-muted-foreground">

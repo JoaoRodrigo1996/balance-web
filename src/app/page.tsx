@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useToast } from '@/components/ui/use-toast'
 import { AuthContext } from '@/contexts/auth-context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -27,8 +28,18 @@ export default function Home() {
     resolver: zodResolver(logInBodySchema),
   })
 
+  const { toast } = useToast()
+
   async function handleSignIn(data: logInBodySchemaFormData) {
-    await signIn(data)
+    try {
+      await signIn(data)
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Não foi possível efetuar o login',
+        description: 'Senha e ou E-mail inválidos. Tente novamente mais tarde.',
+      })
+    }
   }
 
   return (

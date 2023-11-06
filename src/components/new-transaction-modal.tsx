@@ -17,6 +17,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Button } from './ui/button'
 import { TransactionContext } from '@/contexts/transaction-context'
 import { useContext } from 'react'
+import { useToast } from './ui/use-toast'
 
 const transactionBodySchema = z.object({
   title: z.string(),
@@ -39,10 +40,21 @@ export function NewTransactionModal() {
     },
   })
 
+  const { toast } = useToast()
+
   const { createTransaction } = useContext(TransactionContext)
 
   async function handleCreateNewTransaction(data: TransactionFormData) {
-    await createTransaction(data)
+    try {
+      await createTransaction(data)
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Não foi possível criar uma nova transação',
+        description:
+          'Verifique se todos os campos estão preenchido corretamente.',
+      })
+    }
   }
 
   return (

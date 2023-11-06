@@ -42,9 +42,13 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const router = useRouter()
 
   async function getClientProfile() {
-    const response = await api.get('/me')
+    try {
+      const response = await api.get('/me')
 
-    setClient(response.data.user.client.props)
+      setClient(response.data.user.client.props)
+    } catch (error) {
+      throw error
+    }
   }
 
   async function signIn({ email, password }: SignInCredentials) {
@@ -62,14 +66,18 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 
       router.push('/dashboard')
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
   const signOut = useCallback(async () => {
-    setClient({} as Client)
-    destroyCookie(undefined, 'nextAuth.token')
-    router.push('/')
+    try {
+      setClient({} as Client)
+      destroyCookie(undefined, 'nextAuth.token')
+      router.push('/')
+    } catch (error) {
+      throw error
+    }
   }, [router])
 
   useEffect(() => {
