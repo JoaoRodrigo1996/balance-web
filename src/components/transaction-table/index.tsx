@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { CircleOff, Loader2, Trash } from 'lucide-react'
+import autoAnimate from '@formkit/auto-animate'
 
 import {
   Table,
@@ -20,12 +21,18 @@ export function TransactionTable() {
   const { transactions, fetchTransactions, isLoading } =
     useContext(TransactionContext)
 
+  const parent = useRef(null)
+
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current)
+  }, [parent])
+
   useEffect(() => {
     fetchTransactions(page)
   }, [fetchTransactions, page])
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" ref={parent}>
       <Table className="border">
         <TableHeader>
           <TableRow>
@@ -45,11 +52,6 @@ export function TransactionTable() {
                 </TableCell>
                 <TableCell>{transaction.type}</TableCell>
                 <TableCell>{dateFormatter(transaction.createdAt)}</TableCell>
-                <TableCell>
-                  <Button variant="ghost" size="icon">
-                    <Trash className="h-4 w-4 text-muted-foreground" />
-                  </Button>
-                </TableCell>
               </TableRow>
             </TableBody>
           )

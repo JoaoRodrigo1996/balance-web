@@ -1,13 +1,7 @@
 'use client'
 
 import { api } from '@/lib/axios'
-import {
-  ReactNode,
-  createContext,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { ReactNode, createContext, useCallback, useState } from 'react'
 
 interface Transaction {
   id: string

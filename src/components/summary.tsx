@@ -19,9 +19,6 @@ export function Summary() {
           <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.INCOME)}
           </span>
-          <span className="text-sm font-medium text-muted-foreground">
-            13% more than last month
-          </span>
         </CardContent>
       </Card>
       <Card>
@@ -33,9 +30,6 @@ export function Summary() {
           <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.OUTCOME)}
           </span>
-          <span className="text-sm font-medium  text-muted-foreground">
-            13% more than last month
-          </span>
         </CardContent>
       </Card>
       <Card>
@@ -46,9 +40,6 @@ export function Summary() {
         <CardContent className="flex flex-col">
           <span className="font-mono text-lg font-bold lg:text-xl">
             {priceFormatter.format(summary.total)}
-          </span>
-          <span className="text-sm font-medium text-muted-foreground">
-            13% more than last month
           </span>
         </CardContent>
       </Card>

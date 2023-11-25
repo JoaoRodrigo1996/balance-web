@@ -1,12 +1,13 @@
 'use client'
 
-import { Header } from '@/components/header'
-import { Summary } from '@/components/summary'
-import { TransactionTable } from '@/components/transaction-table'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
+
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { NewTransactionModal } from '@/components/new-transaction-modal'
+import { TransactionTable } from '@/components/transaction-table'
+import { Summary } from '@/components/summary'
+import { Header } from '@/components/header'
+import { Button } from '@/components/ui/button'
 
 export default function SignIn() {
   return (
