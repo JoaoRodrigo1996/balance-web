@@ -1,8 +1,5 @@
-import { rejects } from 'assert'
 import axios, { AxiosError, AxiosInstance } from 'axios'
-import { request } from 'http'
-import { destroyCookie, parseCookies, setCookie } from 'nookies'
-import { resolve } from 'path'
+import { parseCookies } from 'nookies'
 
 type SignOut = () => void
 
@@ -18,7 +15,7 @@ type APIInstanceProps = AxiosInstance & {
 const token = parseCookies()
 
 const api = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: 'https://balance-deploy-api.onrender.com/',
   headers: {
     Authorization: `Bearer ${token['nextAuth.token']}`,
   },
