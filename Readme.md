@@ -1,3 +1,6 @@
+## Demonstração
+
+![](balance-gif.gif)
 
 # Balance
 Nesse projeto o cliente pode anotar todos os seus ganhos e perdas, onde no final do mês ele pode visualizar onde ele gastou e onde ele fez mais dinheiro durante um período.
